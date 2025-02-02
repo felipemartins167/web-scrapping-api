@@ -1,0 +1,10 @@
+services:
+  fms-webscraping-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fms-webscraping-api-container
+    ports:
+      - "5000:8080"
+      - "5001:443"
+    restart: always

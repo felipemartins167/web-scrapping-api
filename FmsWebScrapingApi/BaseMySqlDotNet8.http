@@ -1,0 +1,6 @@
+@BaseMySqlDotNet8_HostAddress = http://localhost:5033
+
+GET {{BaseMySqlDotNet8_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
