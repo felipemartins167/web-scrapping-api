@@ -9,7 +9,7 @@
 
         public static string GetTotalProducts()
         {
-            return $"select count(*) from products group by p.product_name, p.marketplace ";
+            return $"select count(*) from products ";
         }
 
         public static string SearchProduct()
@@ -19,7 +19,7 @@
 
         public static string PaginationProduct()
         {
-            return $" group by p.product_name, p.marketplace order by p.reviews_qtd desc LIMIT @limit OFFSET @offset";
+            return $" order by p.reviews_qtd desc LIMIT @limit OFFSET @offset";
         }
 
         public static string GetProductByNameMarketPlace()
