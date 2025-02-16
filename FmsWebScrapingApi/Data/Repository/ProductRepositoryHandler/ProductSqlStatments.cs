@@ -9,7 +9,7 @@
 
         public static string GetTotalProducts()
         {
-            return $"select count(*) from products ";
+            return $"select count(*) from products group by p.product_name, p.marketplace ";
         }
 
         public static string SearchProduct()
