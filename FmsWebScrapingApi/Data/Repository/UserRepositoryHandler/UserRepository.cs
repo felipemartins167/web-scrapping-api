@@ -364,7 +364,7 @@ namespace FmsWebScrapingApi.Data.Repository.UserRepositoryHandler
             catch (Exception ex)
             {
                 transaction.Rollback();
-                throw new ApiException(ErrorMessageConstants.GenericError, ErrorCodeConstants.GenericError, ex.Message);
+                throw new ApiException(ErrorMessageConstants.GenericError, ErrorCodeConstants.GenericError, ex.InnerException);
             }
         }
 
