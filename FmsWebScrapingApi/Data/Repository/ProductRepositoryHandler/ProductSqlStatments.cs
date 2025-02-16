@@ -19,7 +19,7 @@
 
         public static string PaginationProduct()
         {
-            return $" order by p.reviews_qtd desc LIMIT @limit OFFSET @offset";
+            return $" group by p.product_name, p.marketplace order by p.reviews_qtd desc LIMIT @limit OFFSET @offset";
         }
 
         public static string GetProductByNameMarketPlace()
