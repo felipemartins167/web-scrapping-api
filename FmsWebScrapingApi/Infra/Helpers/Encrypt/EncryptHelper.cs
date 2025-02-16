@@ -17,6 +17,14 @@ namespace FmsWebScrapingApi.Infra.Helpers.Encrypt
 
             byte[] plainBytes = Encoding.ASCII.GetBytes(plainText);
 
+            byte[] keyBytes = Encoding.UTF8.GetBytes(KeyEncrypt);
+            byte[] ivBytes = Convert.FromBase64String(IVEncrypt);
+
+            if (keyBytes.Length != 16 && keyBytes.Length != 24 && keyBytes.Length != 32)
+            {
+                throw new Exception($"O tamanho da chave de criptografia ({keyBytes.Length} bytes) é inválido. Deve ser 16, 24 ou 32 bytes.");
+            }
+
             using var aesAlg = Aes.Create();
             aesAlg.Key = Encoding.ASCII.GetBytes(KeyEncrypt);
             aesAlg.IV = Convert.FromBase64String(IVEncrypt);
