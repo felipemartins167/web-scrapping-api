@@ -17,8 +17,8 @@ namespace FmsWebScrapingApi.Controllers
             this._userService = userService;
         }
 
+        [Authorize]
         [HttpGet("v1/{pageNumber}/{pageSize}/{search}")]
-        //[Authorize]
         public async Task<IActionResult> GetAllUsers(int pageNumber, int pageSize, string search)
         {
             IActionResult result = Ok();
