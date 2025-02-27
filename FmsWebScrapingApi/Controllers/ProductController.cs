@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FmsWebScrapingApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
@@ -23,7 +24,6 @@ namespace FmsWebScrapingApi.Controllers
         /// <param name="pageSize">Número de registros por página</param>
         /// <param name="search">String de busca</param>
         /// <returns>Listagem paginada de produtos</returns>
-        [Authorize]
         [HttpGet("v1/{pageNumber}/{pageSize}/{search}")]
         public async Task<IActionResult> GetAllProducts(int pageNumber, int pageSize, string search)
         {
@@ -46,7 +46,6 @@ namespace FmsWebScrapingApi.Controllers
             return result;
         }
 
-        [Authorize]
         [HttpGet("getByNameMarketPlace/v1/{name}/{marketPlace}")]
         public async Task<IActionResult> GetByNameMarketPlace(string name, string marketPlace)
         {

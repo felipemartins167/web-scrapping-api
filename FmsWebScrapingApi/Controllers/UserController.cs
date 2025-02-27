@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FmsWebScrapingApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class UserController : ControllerBase
@@ -17,7 +18,6 @@ namespace FmsWebScrapingApi.Controllers
             this._userService = userService;
         }
 
-        [Authorize]
         [HttpGet("v1/{pageNumber}/{pageSize}/{search}")]
         public async Task<IActionResult> GetAllUsers(int pageNumber, int pageSize, string search)
         {
