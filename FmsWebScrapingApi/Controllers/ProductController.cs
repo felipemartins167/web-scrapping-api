@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FmsWebScrapingApi.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
