@@ -46,15 +46,15 @@ namespace FmsWebScrapingApi.Controllers
             return result;
         }
 
-        [HttpGet("getByNameMarketPlace/v1/{name}/{marketPlace}")]
-        public async Task<IActionResult> GetByNameMarketPlace(string name, string marketPlace)
+        [HttpGet("getByIdMarketPlace/v1/{id}/{marketPlace}")]
+        public async Task<IActionResult> GetByNameMarketPlace(string id, string marketPlace)
         {
             IActionResult result = Ok();
             try
             {
-                name = name.Replace("{", "").Replace("}", "");
+                id = id.Replace("{", "").Replace("}", "");
                 marketPlace = marketPlace.Replace("{", "").Replace("}", "");
-                var product = await _productService.GetByNameMarketPlace(name, marketPlace);
+                var product = await _productService.GetByIdMarketPlace(id, marketPlace);
                 result = Ok(new ApiResponse<List<ProductResponse>>(product, false, null, null, null));
             }
             catch (ApiException ex)

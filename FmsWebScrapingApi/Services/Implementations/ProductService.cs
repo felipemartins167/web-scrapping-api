@@ -49,11 +49,11 @@ namespace FmsWebScrapingApi.Services.Implementations
             }
         }
 
-        public async Task<List<ProductResponse>> GetByNameMarketPlace(string name, string marketPlace)
+        public async Task<List<ProductResponse>> GetByIdMarketPlace(string name, string marketPlace)
         {
             try
             {
-                var product = await _productRepository.GetByNameMarketPlace(name, marketPlace);
+                var product = await _productRepository.GetByIdMarketPlace(name, marketPlace);
                 return product;
             }
             catch (ApiException ex)

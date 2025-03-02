@@ -2,6 +2,7 @@
 {
     public class ProductResponse
     {
+        public required string Id { get; set; }
         public required string Name { get; set; }
         public required decimal Reviews { get; set; }
         public int ReviewsTotal { get; set; }

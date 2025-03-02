@@ -47,6 +47,7 @@ namespace FmsWebScrapingApi.Data.Repository.ProductRepositoryHandler
                     {
                         productList.Add(new ProductResponse()
                         {
+                            Id = reader.IsDBNull(reader.GetOrdinal("id")) ? "" : reader["id"].ToString(),
                             MarketPlace = reader.IsDBNull(reader.GetOrdinal("marketplace")) ? "" : reader["marketplace"].ToString(),
                             Name = reader.IsDBNull(reader.GetOrdinal("product_name")) ? "" : reader["product_name"].ToString(),
                             Reviews = Convert.ToInt32(reader["reviews"]),
@@ -94,15 +95,15 @@ namespace FmsWebScrapingApi.Data.Repository.ProductRepositoryHandler
             }
         }
 
-        public async Task<List<ProductResponse>> GetByNameMarketPlace(string name, string marketPlace)
+        public async Task<List<ProductResponse>> GetByIdMarketPlace(string id, string marketPlace)
         {
             try
             {
                 var product = new List<ProductResponse>();
-                string sqlGetProductByNameMarketPlace = ProductSqlStatments.GetProductByNameMarketPlace();
+                string sqlGetProductByNameMarketPlace = ProductSqlStatments.GetProductByIdMarketPlace();
                 MySqlCommand cmd = _conn.CreateCommand();
 
-                cmd.Parameters.AddWithValue("name", name);
+                cmd.Parameters.AddWithValue("id", id);
                 cmd.Parameters.AddWithValue("marketPlace", marketPlace);
 
                 cmd.CommandText = sqlGetProductByNameMarketPlace;
@@ -113,6 +114,7 @@ namespace FmsWebScrapingApi.Data.Repository.ProductRepositoryHandler
                     {
                         product.Add(new ProductResponse()
                         {
+                            Id = reader.IsDBNull(reader.GetOrdinal("id")) ? "" : reader["id"].ToString(),
                             MarketPlace = reader.IsDBNull(reader.GetOrdinal("marketplace")) ? "" : reader["marketplace"].ToString(),
                             Name = reader.IsDBNull(reader.GetOrdinal("product_name")) ? "" : reader["product_name"].ToString(),
                             Reviews = Convert.ToInt32(reader["reviews"]),
