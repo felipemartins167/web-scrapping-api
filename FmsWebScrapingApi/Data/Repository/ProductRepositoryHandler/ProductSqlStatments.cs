@@ -4,7 +4,7 @@
     {
         public static string GetProducts()
         {
-            return $"select p.product_id, p.product_name, p.reviews, p.reviews_qtd, p.created_date, p.product_url, p.created_date, p.marketplace, p.modified_date, p.product_image, p.product_name, p.product_price_from, p.product_price_local, p.product_price_to from products p ";
+            return $"select p.product_id as id, p.product_name, p.reviews, p.reviews_qtd, p.created_date, p.product_url, p.created_date, p.marketplace, p.modified_date, p.product_image, p.product_name, p.product_price_from, p.product_price_local, p.product_price_to from products p ";
         }
 
         public static string GetTotalProducts()
