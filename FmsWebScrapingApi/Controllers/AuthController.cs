@@ -172,6 +172,7 @@ namespace FmsWebScrapingApi.Controllers
             try
             {
                 await _authService.VerifyEmailExist(email);
+                result = StatusCode(200, new ApiResponse<dynamic>(new {}, false, null, null, null));
             }
             catch (ApiException ex)
             {
