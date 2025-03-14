@@ -2,6 +2,7 @@
 using FmsWebScrapingApi.Data.Models;
 using FmsWebScrapingApi.Domain.Entities;
 using FmsWebScrapingApi.Domain.Interfaces;
+using FmsWebScrapingApi.Infra.Constants;
 using FmsWebScrapingApi.Infra.Helpers.Encrypt;
 using FmsWebScrapingApi.Services.Implementations;
 using FmsWebScrapingApi.Services.Interfaces;
@@ -171,8 +172,15 @@ namespace FmsWebScrapingApi.Controllers
 
             try
             {
-                await _authService.VerifyEmailExist(email);
-                result = StatusCode(200, new ApiResponse<dynamic>(new {}, false, null, null, null));
+                bool isEmailExist = await _authService.VerifyEmailExist(email);
+                if (isEmailExist)
+                {
+                    result = StatusCode(200, new ApiResponse<ApiException>(new ApiException(ErrorMessageConstants.EmailRegistered, ErrorCodeConstants.EmailRegistered, null), true, ErrorMessageConstants.EmailRegistered, null, null));
+                }
+                else
+                {
+                    result = StatusCode(200, new ApiResponse<dynamic>(new { }, false, null, null, null));
+                }
             }
             catch (ApiException ex)
             {

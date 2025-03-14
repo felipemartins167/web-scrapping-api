@@ -340,11 +340,7 @@ namespace FmsWebScrapingApi.Services.Implementations
             try
             {
                 bool isEmailExist = await _userRepository.VerifyEmailExist(email);
-                if (isEmailExist)
-                {
-                    throw new ApiException(ErrorMessageConstants.EmailRegistered, ErrorCodeConstants.EmailRegistered, null);
-                }
-                return true;
+                return isEmailExist;
             }
             catch (ApiException)
             {
