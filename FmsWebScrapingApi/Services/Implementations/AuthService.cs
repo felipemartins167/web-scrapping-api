@@ -334,5 +334,26 @@ namespace FmsWebScrapingApi.Services.Implementations
                 throw new ApiException(ErrorMessageConstants.GenericError, ErrorCodeConstants.GenericError, ex.Data);
             }
         }
+
+        public async Task<bool> VerifyEmailExist(string email)
+        {
+            try
+            {
+                bool isEmailExist = await _userRepository.VerifyEmailExist(email);
+                if (isEmailExist)
+                {
+                    throw new ApiException(ErrorMessageConstants.EmailRegistered, ErrorCodeConstants.EmailRegistered, null);
+                }
+                return true;
+            }
+            catch (ApiException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw new ApiException(ErrorMessageConstants.GenericError, ErrorCodeConstants.GenericError, ex.Data);
+            }
+        }
     }
 }

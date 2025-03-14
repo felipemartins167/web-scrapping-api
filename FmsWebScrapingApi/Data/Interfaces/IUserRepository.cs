@@ -12,6 +12,7 @@ namespace FmsWebScrapingApi.Data.Interfaces
         public Task<IUserModel?> GetUserByLoginRole(UserLoginDto userLoginDto, int role);
         public Task<IUserModel?> GetUserById(int id);
         public Task<IUserModel?> GetUserByEmail(string email);
+        public Task<bool> VerifyEmailExist(string email);
         public Task<IUserModel?> GetUserByRefreshToken(string refreshToken);
         public Task<bool> CreateRefreshTokenUser(UserTokenDto refreshToken, int userId, MySqlTransaction transaction);
         public Task<bool> UpdateRefreshTokenUser(UserTokenDto refreshToken, string oldRefreshToken, int userId, MySqlTransaction transaction);

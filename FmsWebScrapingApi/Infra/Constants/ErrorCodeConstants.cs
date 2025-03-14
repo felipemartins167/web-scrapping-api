@@ -6,6 +6,7 @@
 
         // Auth Errors
         public static string InsertTokenUser = "AUT001";
+        public static string EmailRegistered = "AUT002";
 
         // Token Erros
         public static string SecurityInvalidToken = "TKN001";

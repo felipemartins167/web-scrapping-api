@@ -163,5 +163,25 @@ namespace FmsWebScrapingApi.Controllers
             }
             return result;
         }
+
+        [HttpGet("v1/verify/email/{email}")]
+        public async Task<IActionResult> VerifyEmail(string email)
+        {
+            IActionResult result = Ok();
+
+            try
+            {
+                await _authService.VerifyEmailExist(email);
+            }
+            catch (ApiException ex)
+            {
+                result = StatusCode(400, new ApiResponse<ApiException>(ex, true, ex.ErrorMessage, null, null));
+            }
+            catch (Exception ex)
+            {
+                result = StatusCode(500, new ApiResponse<Exception>(ex, true, ex.Message, null, null));
+            }
+            return result;
+        }
     }
 }

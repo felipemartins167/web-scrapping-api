@@ -93,5 +93,10 @@ namespace FmsWebScrapingApi.Data.Repository.UserRepositoryHandler
         {
             return $"select rolu.user_id, rolu.role_id, rol.name as 'name_role' from roles_users rolu inner join roles rol on rolu.role_id = rol.id inner join users usr on usr.id = rolu.user_id";
         }
+
+        public static string VerifyEmailExist()
+        {
+            return $"select count(*) from users usr where usr.email = @email";
+        }
     }
 }

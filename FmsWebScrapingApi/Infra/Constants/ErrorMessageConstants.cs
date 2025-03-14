@@ -6,6 +6,7 @@
 
         // Auth Errors
         public static string InsertTokenUser = "Ocorreu um erro ao salvar token de acesso do usuário!";
+        public static string EmailRegistered = "Este e-mail já está cadastrado em nossa base de dados!";
 
         // Token Erros
         public static string SecurityInvalidToken = "O Token de autenticação enviado não é válido!";

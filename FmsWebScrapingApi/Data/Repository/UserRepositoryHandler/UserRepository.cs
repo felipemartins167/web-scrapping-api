@@ -522,5 +522,26 @@ namespace FmsWebScrapingApi.Data.Repository.UserRepositoryHandler
                 throw new ApiException(ErrorMessageConstants.GenericError, ErrorCodeConstants.GenericError, ex.Data);
             }
         }
+
+        public async Task<bool> VerifyEmailExist(string email)
+        {
+            try
+            {
+                MySqlCommand cmd = _conn.CreateCommand();
+
+                string sqlGetUsers = UserSqlStatments.VerifyEmailExist();
+
+                cmd.CommandText = sqlGetUsers;
+                cmd.Parameters.AddWithValue("email", email);
+
+                int totalRows = Convert.ToInt32(await cmd.ExecuteScalarAsync());
+
+                return totalRows > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new ApiException(ErrorMessageConstants.GenericError, ErrorCodeConstants.GenericError, ex.Data);
+            }
+        }
     }
 }

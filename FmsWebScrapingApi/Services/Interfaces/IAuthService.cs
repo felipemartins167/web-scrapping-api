@@ -12,6 +12,7 @@ namespace FmsWebScrapingApi.Services.Interfaces
         public Task<bool> CreateRefreshToken(UserTokenDto refreshToken, int id);
         public Task<bool> UpdateRefreshToken(UserTokenDto newRefreshToken, string oldRefreshToken, int userId);
         public Task<bool> ValidateUserEmailByToken(string token);
+        public Task<bool> VerifyEmailExist(string email);
         public Task SendEmailResetPasswordUser(string email);
         public Task ResetPasswordUser(ResetPasswordDto resetPasswordDto);
         public Task<IUserModel> GetUserByRefreshToken(RefreshTokenDto refreshTokenDto);
