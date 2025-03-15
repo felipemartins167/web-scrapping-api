@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FmsWebScrapingApi", "FmsWebScrapingApi\FmsWebScrapingApi.csproj", "{BB6E6601-5B51-4198-A94B-7823B0A722E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E8B81B66-0A9F-45B1-8068-8760BA854DAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit", "Unit\Unit.csproj", "{4A47F5F4-3EC0-47AF-9A3B-A9550767B346}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration", "Integration\Integration.csproj", "{898599E6-3BA0-4249-AE3B-6A88A769D1C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +21,20 @@ Global
 		{BB6E6601-5B51-4198-A94B-7823B0A722E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB6E6601-5B51-4198-A94B-7823B0A722E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB6E6601-5B51-4198-A94B-7823B0A722E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A47F5F4-3EC0-47AF-9A3B-A9550767B346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A47F5F4-3EC0-47AF-9A3B-A9550767B346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A47F5F4-3EC0-47AF-9A3B-A9550767B346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A47F5F4-3EC0-47AF-9A3B-A9550767B346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{898599E6-3BA0-4249-AE3B-6A88A769D1C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{898599E6-3BA0-4249-AE3B-6A88A769D1C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{898599E6-3BA0-4249-AE3B-6A88A769D1C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{898599E6-3BA0-4249-AE3B-6A88A769D1C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4A47F5F4-3EC0-47AF-9A3B-A9550767B346} = {E8B81B66-0A9F-45B1-8068-8760BA854DAF}
+		{898599E6-3BA0-4249-AE3B-6A88A769D1C5} = {E8B81B66-0A9F-45B1-8068-8760BA854DAF}
 	EndGlobalSection
 EndGlobal
