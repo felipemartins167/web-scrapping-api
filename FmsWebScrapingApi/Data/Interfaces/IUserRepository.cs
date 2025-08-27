@@ -23,5 +23,6 @@ namespace FmsWebScrapingApi.Data.Interfaces
         public Task<bool> AddRoleUser(int roleId, int userId, MySqlTransaction transaction);
         public Task<bool> ValidateUserEmailByToken(string token, MySqlTransaction transaction);
         public Task<int> GetTotalPaginateUsers(string search);
+
     }
 }

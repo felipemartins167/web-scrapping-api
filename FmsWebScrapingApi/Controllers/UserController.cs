@@ -18,6 +18,13 @@ namespace FmsWebScrapingApi.Controllers
             this._userService = userService;
         }
 
+        /// <summary>
+        /// Realiza a listagem paginada de usuários pesquisando por nome
+        /// </summary>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="search"></param>
+        /// <returns></returns>
         [HttpGet("v1/{pageNumber}/{pageSize}/{search}")]
         public async Task<IActionResult> GetAllUsers(int pageNumber, int pageSize, string search)
         {
@@ -28,6 +35,26 @@ namespace FmsWebScrapingApi.Controllers
                 var users = await _userService.GetPaginateUsers(pageNumber, pageSize, search);
                 int total = await _userService.GetTotalPaginateUsers(search, pageSize);
                 result = Ok(new ApiResponse<List<UserResponse>>(users, false, null, pageNumber, total));
+            }
+            catch (ApiException ex)
+            {
+                result = StatusCode(400, new ApiResponse<ApiException>(ex, true, ex.ErrorMessage, null, null));
+            }
+            catch (Exception ex)
+            {
+                result = StatusCode(500, new ApiResponse<Exception>(ex, true, ex.Message, null, null));
+            }
+            return result;
+        }
+
+        [HttpGet("v1/{id}")]
+        public async Task<IActionResult> GetUserById(int id)
+        {
+            IActionResult result = Ok();
+            try
+            {
+                var user = await _userService.GetUserById(id);
+                result = Ok(new ApiResponse<UserResponse>(user, false, null, null, null));
             }
             catch (ApiException ex)
             {

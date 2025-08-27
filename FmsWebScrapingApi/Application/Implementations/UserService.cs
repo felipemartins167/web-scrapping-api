@@ -47,5 +47,34 @@ namespace FmsWebScrapingApi.Services.Implementations
                 throw;
             }
         }
+
+        public async Task<UserResponse> GetUserById(int userId)
+        {
+            try
+            {
+                var user = await _userRepository.GetUserById(userId);
+                return new UserResponse()
+                {
+                    Id = userId,
+                    Email = user.Email,
+                    EmailConfirmed = user.EmailConfirmed,
+                    Name = user.Name,
+                    Status = new StatusUserResponse()
+                    {
+                        Id = user.Status.Id,
+                        Name = user.Status.Name,
+                    }
+
+                };
+            }
+            catch (ApiException ex)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

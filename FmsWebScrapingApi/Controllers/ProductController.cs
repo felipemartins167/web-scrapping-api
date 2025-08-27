@@ -46,6 +46,12 @@ namespace FmsWebScrapingApi.Controllers
             return result;
         }
 
+        /// <summary>
+        /// Endpoint para carregar um determinado produto pesquisa por Id e MarketPlace
+        /// </summary>
+        /// <param name="id">id do produto no Banco de Dados</param>
+        /// <param name="marketPlace">Loja onde o produto está sendo pesquisado (Mercado Livre, Amazon, etc)</param>
+        /// <returns></returns>
         [HttpGet("getByIdMarketPlace/v1/{id}/{marketPlace}")]
         public async Task<IActionResult> GetByNameMarketPlace(string id, string marketPlace)
         {

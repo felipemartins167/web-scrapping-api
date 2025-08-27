@@ -22,6 +22,11 @@ namespace FmsWebScrapingApi.Controllers
             _authService = authService;
         }
 
+        /// <summary>
+        /// Realiza o registro do usuário no sistema anonimamente
+        /// </summary>
+        /// <param name="userRequest"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("v1/user")]
         public async Task<IActionResult> CreateUser([FromBody] UserRequest userRequest)

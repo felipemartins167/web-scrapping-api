@@ -1,16 +1,13 @@
 ﻿using System.Data;
 using System.Data.Common;
-using System.Xml.Linq;
 using FmsWebScrapingApi.Data.Context;
 using FmsWebScrapingApi.Data.Interfaces;
 using FmsWebScrapingApi.Data.Models;
 using FmsWebScrapingApi.Domain.Entities;
-using FmsWebScrapingApi.Domain.Interfaces;
 using FmsWebScrapingApi.Infra.Config;
 using FmsWebScrapingApi.Infra.Constants;
 using FmsWebScrapingApi.Infra.Helpers.Encrypt;
 using MySql.Data.MySqlClient;
-using static Org.BouncyCastle.Math.EC.ECCurve;
 
 namespace FmsWebScrapingApi.Data.Repository.UserRepositoryHandler
 {
